@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<script src="js/jquery.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link type="text/css" href="css/style.css" rel="stylesheet" />
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+	$(function() {
+		$("a").addClass("btn btn-default btn-xs");
+	});
+</script>
+<head>
+
+
+<meta charset="utf-8">
+<title>login</title>
+<style>
+	body,
+	html{
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-family: 'Nunito', sans-serif;
+	}
+	body{background:#F7FAFC;}   <!--想设置成黑色的话写成#000即可-->
+	canvas{
+		margin: 0;
+		padding: 0;
+		display: block; /*  ˉ\_(ツ)_/ˉ  */
+		touch-action: none;
+	}
+	.top1{
+        		width: 100%;
+        		height: 50px;
+        		background-color: ;
+        		position: relative;
+        		border: 0px solid black;
+        		
+        	}
+        .nav{
+			display: flex;
+				
+		}
+			.nav>li>a{
+				color: white;
+			}
+        
+        
+        
+        	.form-bg{
+    background: white;
+}
+.form-horizontal{
+    background: white;
+    padding-bottom: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+.form-horizontal .heading{
+    display: block;
+    font-size: 35px;
+    font-weight: 700;
+    padding: 35px 0;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 30px;
+}
+.form-horizontal .form-group{
+    padding: 0 40px;
+    margin: 0 0 25px 0;
+    position: relative;
+}
+.form-horizontal .form-control{
+    background: #f0f0f0;
+    border: none;
+    border-radius: 20px;
+    box-shadow: none;
+    padding: 0 20px 0 45px;
+    height: 40px;
+    transition: all 0.3s ease 0s;
+}
+.form-horizontal .form-control:focus{
+    background: #e0e0e0;
+    box-shadow: none;
+    outline: 0 none;
+}
+.form-horizontal .form-group i{
+    position: absolute;
+    top: 12px;
+    left: 60px;
+    font-size: 17px;
+    color: #c8c8c8;
+    transition : all 0.5s ease 0s;
+}
+.form-horizontal .form-control:focus + i{
+    color: #00b4ef;
+}
+.form-horizontal .fa-question-circle{
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 60px;
+    font-size: 20px;
+    color: #808080;
+    transition: all 0.5s ease 0s;
+}
+.form-horizontal .fa-question-circle:hover{
+    color: #000;
+}
+.form-horizontal .main-checkbox{
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #11a3fc;
+    border-radius: 50%;
+    position: relative;
+    margin: 5px 0 0 5px;
+    border: 1px solid #11a3fc;
+}
+.form-horizontal .main-checkbox label{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.form-horizontal .main-checkbox label:after{
+    content: "";
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    border: 3px solid #fff;
+    border-top: none;
+    border-right: none;
+    background: transparent;
+    opacity: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.form-horizontal .main-checkbox input[type=checkbox]{
+    visibility: hidden;
+}
+.form-horizontal .main-checkbox input[type=checkbox]:checked + label:after{
+    opacity: 1;
+}
+.form-horizontal .text{
+    float: left;
+    margin-left: 7px;
+    line-height: 20px;
+    padding-top: 5px;
+    text-transform: capitalize;
+}
+.form-horizontal .btn{
+    float: right;
+    font-size: 14px;
+    color: #fff;
+    background: #00b4ef;
+    border-radius: 30px;
+    padding: 10px 25px;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.5s ease 0s;
+}
+@media only screen and (max-width: 479px){
+    .form-horizontal .form-group{
+        padding: 0 25px;
+    }
+    .form-horizontal .form-group i{
+        left: 45px;
+    }
+    .form-horizontal .btn{
+        padding: 10px 20px;
+    }
+}
+.container{
+	position:absolute;
+	top:120px;
+	left:100px;
+}
+.btn {
+	width: 46px;
+	height: 46px;
+	position: absolute;
+	border: 1px solid #ccc;
+	cursor: move;
+	font-family: "Authentication is success！";
+	text-align: center;
+	background-color: #fff;
+	user-select: none;
+	color: #666;
+}
+</style>
+</head>
+<body>
+
+<div class="top1">
+	    	<div class="navbar navbar-fixed-top" style="background-color:#FFAD86;display: flex; align-items: center; ">
+			<div class="hei">
+				<ul class="nav">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<li>
+						<a href="login.html" class="active">用户登录</a>
+					</li>
+					<li>
+						<a href="s_login.html"class="active">商家登录</a>
+					</li>
+					<li>
+						<a href="index.html"class="active">主页</a>
+					</li>	
+				</ul>	
+			</div>	
+			</div>
+		</div>	
+	<div class="container">
+    <div class="row">
+
+	<script src="js/anime.min.js"></script>
+
+	<canvas></canvas>
+
+	<form action="../loginServlet" method="post">
+		<div class="container" style="position: absolute;left: 450px;top:200px;">
+			<div class="left">
+				<div class="login">用户登录</div>
+				<div class="eula">欢迎使用！</div>
+				<label class="eula">
+					<a href="forget_password.jsp">忘记密码？</a>
+					<a href="register.html">新用户注册</a>
+				</label>
+			</div>
+			<div class="right">
+				<svg viewBox="0 0 320 300">
+					<defs>
+						<linearGradient
+								inkscape:collect="always"
+								id="linearGradient"
+								x1="13"
+								y1="193.49992"
+								x2="307"
+								y2="193.49992"
+								gradientUnits="userSpaceOnUse">
+							<stop
+									style="stop-color:#ff00ff;"
+									offset="0"
+									id="stop876"></stop>
+							<stop
+									style="stop-color:#ff0000;"
+									offset="1"
+									id="stop878"></stop>
+						</linearGradient>
+					</defs>
+					<path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143"></path>
+				</svg>
+				<div class="form">
+					<label for="username">账号</label>
+					<input type="text" id="username" name="username">
+					<label for="password">密码</label>
+					<input type="password" id="password" name="password">
+					<input type="submit" id="submit" value="提交">
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<script>
+        var $ = function(selector){
+                return  document.querySelector(selector);
+            },
+            box = $(".drag"),
+            bg = $(".bg"),
+            text = $(".text"),
+            btn = $(".btn"),
+            success = false,
+            distance = box.offsetWidth - btn.offsetWidth;
+        btn.onmousedown = function(e){
+            btn.style.transition = "";
+            bg.style.transition ="";
+            var e = e || window.event;
+            var downX = e.clientX;
+            document.onmousemove = function(e){
+                var e = e || window.event;
+                var moveX = e.clientX;
+                var offsetX = moveX - downX;
+                if( offsetX > distance){
+                    offsetX = distance;
+                }else if( offsetX < 0){
+                    offsetX = 0;
+                }
+                btn.style.left = offsetX + "px";
+                bg.style.width = offsetX + "px";
+                if( offsetX == distance){
+                    text.innerHTML = "认证成功";
+                    text.style.color = "#fff";
+                    btn.innerHTML = "&radic;";
+                    btn.style.color = "green";
+                    bg.style.backgroundColor = "lightgreen";
+                    success = true;
+                    btn.onmousedown = null;
+                    document.onmousemove = null;
+                    setTimeout(function(){
+                        alert('认证成功!');
+                    },100);
+                }
+            }
+            document.onmouseup = function(e){
+                if(success){
+                    return;
+                }else{
+                    btn.style.left = 0;
+                    bg.style.width = 0;
+                    btn.style.transition = "left 1s ease";
+                    bg.style.transition = "width 1s ease";
+                }
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+    </script>
+	<script>
+            function mySubmit(){}
+            </script>
+	<script> 
+            var errori ='<%=request.getParameter("error")%>';
+            if(errori=='yes'){
+             alert("账号或密码错误");
+            }
+    </script>
+
+	<script>
+		var current = null;
+		document.querySelector('#username').addEventListener('focus', function(e) {
+			if (current) current.pause();
+			current = anime({
+				targets: 'path',
+				strokeDashoffset: {
+					value: 0,
+					duration: 700,
+					easing: 'easeOutQuart'
+				},
+				strokeDasharray: {
+					value: '240 1386',
+					duration: 700,
+					easing: 'easeOutQuart'
+				}
+			});
+		});
+		document.querySelector('#password').addEventListener('focus', function(e) {
+			if (current) current.pause();
+			current = anime({
+				targets: 'path',
+				strokeDashoffset: {
+					value: -336,
+					duration: 700,
+					easing: 'easeOutQuart'
+				},
+				strokeDasharray: {
+					value: '240 1386',
+					duration: 700,
+					easing: 'easeOutQuart'
+				}
+			});
+		});
+		document.querySelector('#submit').addEventListener('focus', function(e) {
+			if (current) current.pause();
+			current = anime({
+				targets: 'path',
+				strokeDashoffset: {
+					value: -730,
+					duration: 700,
+					easing: 'easeOutQuart'
+				},
+				strokeDasharray: {
+					value: '530 1386',
+					duration: 700,
+					easing: 'easeOutQuart'
+				}
+			});
+		});</script>
+
+
+	<script>
+		var canvas = document.querySelector('canvas');
+		canvas.height = window.innerHeight;
+		canvas.width = window.innerWidth;
+		c = canvas.getContext('2d');
+
+		window.addEventListener('resize', function(){
+			canvas.height = window.innerHeight;
+			canvas.width = window.innerWidth;
+
+			initCanvas();
+		})
+
+		var mouse = {
+			x: undefined,
+			y: undefined
+		}
+		window.addEventListener('mousemove',
+				function (event) {
+					mouse.x = event.x;
+					mouse.y = event.y;
+					drawCircles();
+				}
+		)
+		window.addEventListener("touchmove",
+				function (event) {
+					let touch = event.touches[0];
+					mouse.x = touch.clientX;
+					mouse.y = touch.clientY;
+					drawCircles();
+				}
+		)
+
+		function Circle(x, y, radius, vx, vy, rgb, opacity, birth, life){
+			this.x = x;
+			this.y = y;
+			this.radius = radius;
+			this.minRadius = radius;
+			this.vx = vx;
+			this.vy = vy;
+			this.birth = birth;
+			this.life = life;
+			this.opacity = opacity;
+
+			this.draw = function() {
+				c.beginPath();
+				c.arc(this.x, this.y, this.radius, Math.PI * 2, false);
+				c.fillStyle = 'rgba(' + rgb +','+ this.opacity +')';
+				c.fill();
+			}
+
+			this.update = function(){
+				if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+					this.vx = -this.vx;
+				}
+
+				if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
+					this.vy = -this.vy;
+				}
+
+				this.x += this.vx;
+				this.y += this.vy;
+
+				this.opacity = 1- (((frame - this.birth) * 1) / this.life);
+
+				if (frame > this.birth + this.life){
+					for (let i = 0; i < circleArray.length; i++){
+						if (this.birth == circleArray[i].birth && this.life == circleArray[i].life){
+							circleArray.splice(i, 1);
+							break;
+						}
+					}
+				} else{
+					this.draw();
+				}
+			}
+
+		}
+
+		var circleArray = [];
+
+		function initCanvas() {
+			circleArray = [];
+		}
+
+		var colorArray = [
+			'355,85,80',
+			'9,80,100',
+			'343,81,45'
+		]
+
+		function drawCircles(){
+			for (let i = 0; i < 6; i++) {
+				let radius = Math.floor(Math.random() * 4) + 2;
+				let vx = (Math.random() * 2) - 1;
+				let vy = (Math.random() * 2) - 1;
+				let spawnFrame = frame;
+				let rgb = colorArray[Math.floor(Math.random() * colorArray.length)];
+				let life = 100;
+				circleArray.push(new Circle(mouse.x, mouse.y, radius, vx, vy, rgb, 1, spawnFrame, life));
+
+			}
+		}
+
+		var frame = 0;
+		function animate() {
+			requestAnimationFrame(animate);
+			frame += 1;
+			c.clearRect(0, 0, innerWidth, innerHeight);
+			for (let i = 0; i < circleArray.length; i++ ){
+				circleArray[i].update();
+			}
+
+		}
+
+		initCanvas();
+		animate();
+
+		// This is just for demo purposes :
+		for (let i = 1; i < 110; i++) {
+			(function (index) {
+				setTimeout(function () {
+					mouse.x = 100 + i * 10;
+					mouse.y = 100;
+					drawCircles();
+				}, i * 10);
+			})(i);
+		}
+	</script>
+
+
+</body>
+</html>

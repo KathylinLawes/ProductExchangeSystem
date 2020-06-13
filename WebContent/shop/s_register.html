@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>                   <!-- 商家注册 -->
+	<head>
+		<meta charset="UTF-8">
+		<title>卖家注册</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet"href="css/font-awesome.min.css"> 
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script>
+        	function checkString(str){               //检查手机号
+        		 re = /^1\d{10}$/;
+        		var result=document.getElementsByName("result")[0];
+        		if(re.test(str)){
+        			
+        			result.innerHTML="<i class='icon-ok-circle  icon-large'></i>";
+        		}else{
+        			document.getElementById("tel").value="";
+        		
+        			result.innerHTML="<font color='red'>输入的手机号格式不正确</font>";
+        			
+        		}
+        	}
+        	
+        	function checkpass(str){                       //检查密码是否符合格式
+        		re=/^[a-zA-Z0-9]{10,16}$/;
+        		var check=document.getElementsByName("checkpassword")[0];
+        		if(re.test(str)){
+        			check.innerHTML="<i class='icon-ok-circle  icon-large'></i>";
+        			
+        		}else{
+        			document.getElementById("userpwd").value="";
+        		
+        			check.innerHTML="<font color='red'>输入的密码格式不正确</font>";	
+        		}
+        	}
+        	
+        	function checkagain(str){                          //检查两次密码是否一致
+        		var pass = document.getElementById("userpwd").value;       //获取密码输入框的值
+        		var again=document.getElementsByName("againresult")[0];
+        		if(str==pass){
+        			again.innerHTML="<i class='icon-ok-circle  icon-large'></i>";
+        			
+        		}else{
+        			document.getElementById("againpsw").value="";
+        		
+        			again.innerHTML="<font color='red'>两次输入的密码不一致</font>";	
+        		}
+        	}
+        	
+        	function finalcheck(form){        //最终检查所有输入框不能为空
+        		
+        		/*
+        		var tel=document.getElementById("tel").value;
+        		var userpwd=document.getElementById("userpwd").value;
+        		var againpsw=document.getElementById("againpsw").value;
+        		var onlinename=document.getElementById("onlinename").value;
+        		var realname=document.getElementById("realname").value;
+        		var school=document.getElementById("school").value;
+        		var sex=document.getElementById("sex").value;*/
+        		//alert(form.accept.value);
+        		if(form.tel.value==''){
+					alert('手机号不能为空！');
+					form.tel.focus();
+					return false;
+					}
+				if(form.userpwd.value==''){
+					alert('密码不能为空！');
+					form.userpwd.focus();
+					return false;
+				}
+				
+				if(form.againpsw.value==''){
+					alert('重新输入密码不能为空');
+					form.againpsw.focus();
+					return false;
+				}
+				
+				
+				if(form.onlinename.value==''){
+					alert('昵称不能为空');
+					form.onlinename.focus();
+					return false;
+				}
+				
+				if(form.realname.value==''){
+					alert('真实名称不能为空');
+					form.onlinename.focus();
+					return false;
+				}
+				
+				if(form.school.value==''){
+					alert('学校不能为空');
+					form.school.focus();
+					return false;
+				}
+				if(form.accept.value=='false'){
+					alert('不同意协议无法注册');
+					return false;
+				}
+
+				return true;
+			}
+        </script>
+		<style>
+			.icon-ok-circle{
+				color:green;
+				
+			}
+			.nav{
+				display: flex;
+				
+			}
+			.nav>li>a{
+				color: white;
+			}
+			.container{
+				width: 100%;
+				height: 700px;
+				
+				display: flex;
+				
+				justify-content: center;
+			}
+			.row{
+				position:absolute;
+				top:50px;
+				background-color: white ;
+				width: 900px;
+				height: 800px;
+			}
+		</style>
+	</head>
+	<body style="background-color: #FFFFAA ;">
+		<!--头部-->
+		<div class="navbar navbar-fixed-top" style="background-color:#FFAD86;display: flex; align-items: center; ">
+			<div class="hei">
+				
+				<ul class="nav">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+					<li >
+						<a href="#" class="active">登录</a>
+					</li>
+					<li>
+						<a href="#"class="active">联系客服</a>
+					</li>
+					<li>
+						<a href="#"class="active">商品分类</a>
+					</li>
+					<li class="dropdown">
+						 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    	卖家中心
+                   		 <b class="caret"></b>
+              			  </a>
+            		    <ul class="dropdown-menu">
+            		        <li><a href="#">一键开店</a></li>
+              		        <li><a href="#">HI</a></li>
+           		            <li><a href="#">你好</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">分离的链接</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">另一个分离的链接</a></li>
+                         </ul>
+					</li>
+					<li>
+						<a href="index.html"class="active">主页</a>
+				</ul>
+			</div>
+		</div>	
+		<!--logo部分-->
+		<div class="container">
+			
+        	<div class="row">
+     <form method="post" class="form-horizontal" style="padding: 30px 100px 10px;" onSubmit="return finalcheck(this);"  action="../s_AddServlet" >
+
+		<fieldset>
+			<legend>卖家注册</legend>
+		</fieldset>
+
+		
+
+		<div class="form-group">
+			<label for="phone" class="col-sm-2 control-label">手机号码：</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="tel"name="tel" onblur="checkString(this.value)">
+			</div>
+			<div class="col-sm-5"style="height: 30px;display: flex; align-items: center;border:0px solid black"><output name="result"></output> </div>
+		</div>
+		<script type="text/javascript">
+		/*检测手机号是否可用*/
+		$("input[name='tel']").blur(function(){
+			/*alert($(this).val());*/
+			$.ajax({
+				type:"post",
+				url:"../s_CheckName",
+				data:{tel:$(this).val()},
+				dataType:"json",
+				success:function(result){
+					if(result.flag){
+						
+					}else{
+						document.getElementById("tel").value="";
+						var result=document.getElementsByName("result")[0];
+	        			result.innerHTML="<font color='red'>该手机号已被占用</font>";
+					}
+				}
+				
+			});
+		})
+	</script>	
+		
+		
+
+		<div class="form-group">
+			<label for="verificationCode" class="col-sm-2 control-label">短信校验码：</label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control" id="verificationCode"
+					name="verificationCode" placeholder="输入手机验证码">
+			</div>
+			<div style="display: inline">
+				<button type="button" class="btn btn-danger">获取验证码</button>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="password" class="col-sm-2 control-label">密码：</label>
+			<div class="col-sm-4">
+				<input type="password" class="form-control" id="userpwd" name="userpwd" placeholder="10-16位字母或数字" onblur="checkpass(this.value)">
+			</div>
+			<div class="col-sm-5" style="height: 30px; display: flex; align-items: center; border:0px solid black"><output name="checkpassword"></output> </div>
+		</div>
+
+		<div class="form-group">
+			<label for="conpsw" class="col-sm-2 control-label">再输一次：</label>
+			<div class="col-sm-4">
+				<input type="password" class="form-control" id="againpsw" name="againpsw" onblur="checkagain(this.value)">
+			</div>
+			<div class="col-sm-5" style="height: 30px; display: flex; align-items: center; border:0px solid black"><output name="againresult"></output> </div>
+		</div>
+
+		<div class="form-group">
+			<label for="nickname" class="col-sm-2 control-label">昵称：</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" name="onlinename" id="onlinename">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="real" class="col-sm-2 control-label">真实姓名：</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="realname" name="realname" placeholder="输入真实姓名">
+			</div>
+			<div style="display: inline">
+				<label class="help-block">#</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 control-label">性别：</label>
+			<div class="col-sm-4">
+				&nbsp; &nbsp;<input type="radio" name="sex" id="sex_m" value="man"
+					checked="checked"> &nbsp;男 &nbsp; &nbsp; &nbsp; &nbsp;
+				&nbsp; &nbsp;<input type="radio" name="sex" id="sex_w" value="woman">
+				&nbsp;女
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="school" class="col-sm-2 control-label">所属院校：</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="school" name="school">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="IdentificationCard" class="col-sm-2 control-label">学号：</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="studentid" name="studentid">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="email" class="col-sm-2 control-label">Email：</label>
+			<div class="col-sm-4">
+				<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-5">
+
+				<div class="checkbox">
+					<label><input type="checkbox" name="check" value="ok" onclick="javascript:document.getElementById('accept').value=this.checked;">我已阅读并接受</label> <a href="#"
+						style="text-decoration: underline;" target="_blank">注册条款</a>
+						<input type="hidden"  name="accept" value="false" id="accept">
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-5">
+
+				<div class="checkbox">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button type="submit" class="btn btn-danger" >提交</button>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<button type="reset" class="btn btn-danger">重置</button>
+				</div>
+			</div>
+			
+		</div>
+	</form>
+
+        	</div>
+			        
+        </div>
+        
+	</body>
+</html>
