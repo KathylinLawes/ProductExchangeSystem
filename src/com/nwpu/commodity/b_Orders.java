@@ -1,5 +1,20 @@
 package com.nwpu.commodity;
 
+/**
+ * Copyright (c) 2020,大佬求带飞组
+  * 文件名称：b_Orders.java
+  * 文件标识：详见校园二手交易系统设计说明书
+  * 摘         要：本文件完成的主要功能是卖家的商品的获取与存储
+ * 
+  * 当前版本：1.2
+  * 作者：杨之正
+  * 完成时间：2020.6.11
+ * 
+  * 取代版本：1.1
+  * 原作者：杨之正
+  * 完成日期：2020.6.4
+ */
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -44,6 +59,14 @@ public class b_Orders extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
+	
+	/**
+	  * 函数介绍：从数据库中得到相关的信息并进行存储
+	  * 输入参数：HttpServletRequest request, HttpServletResponse response
+	  * 输出参数：无
+	  * 返回值：在网页上可以看到相关的信息
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String condition=request.getParameter("bid");
@@ -83,8 +106,6 @@ public class b_Orders extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 		response.setContentType("text/html;charset=UTF-8"); 
 		JSONArray jsonarray=JSONArray.fromObject(orders);
 		//System.out.println(jsonarray);

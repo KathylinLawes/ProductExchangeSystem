@@ -1,3 +1,19 @@
+<%--
+Copyright (c) 2020,大佬求带飞组
+文件名称：display.jsp
+文件标识：详见校园二手交易系统设计说明书
+摘         要：本文件完成的主要功能是实现商品的展示
+
+当前版本：1.2
+作者：杨之正
+完成时间：2020.6.11
+
+取代版本：1.1
+原作者：杨之正
+完成日期：2020.6.4
+--%>
+
+
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="java.util.*" %>   

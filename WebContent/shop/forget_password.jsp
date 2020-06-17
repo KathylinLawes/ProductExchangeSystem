@@ -1,3 +1,19 @@
+<%--
+Copyright (c) 2020,大佬求带飞组
+文件名称：forget_password.jsp
+文件标识：详见校园二手交易系统设计说明书
+摘         要：本文件完成的主要功能是实现忘记密码界面输入邮箱界面
+
+当前版本：1.2
+作者：杨之正
+完成时间：2020.6.11
+
+取代版本：1.1
+原作者：杨之正
+完成日期：2020.6.4
+--%>
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import ="com.nwpu.bean.User" %>

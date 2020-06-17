@@ -1,5 +1,20 @@
 package com.nwpu.util;
 
+/**
+ * Copyright (c) 2020,大佬求带飞组
+  * 文件名称：SqlCon.java
+  * 文件标识：详见校园二手交易系统设计说明书
+  * 摘         要：本文件完成的主要功能是完成数据库的连接
+ * 
+  * 当前版本：1.2
+  * 作者：杨之正
+  * 完成时间：2020.6.11
+ * 
+  * 取代版本：1.1
+  * 原作者：杨之正
+  * 完成日期：2020.6.4
+ */
+
 import java.sql.*;
 
 public class SqlCon {
@@ -31,9 +46,9 @@ public class SqlCon {
 					if(obj instanceof Statement) {
 						((Statement)obj).close();
 					}
-					if(obj instanceof Statement) {
-						((ResultSet)obj).close();
-					}
+//					if(obj instanceof Statement) {
+//						((ResultSet)obj).close();
+//					}
 				}
 			}catch(SQLException e) {
 				e.printStackTrace();

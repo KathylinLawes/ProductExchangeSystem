@@ -1,5 +1,20 @@
 package com.nwpu.control;
 
+/**
+ * Copyright (c) 2020,大佬求带飞组
+  * 文件名称：CommodityAdd.java
+  * 文件标识：详见校园二手交易系统设计说明书
+  * 摘         要：本文件完成的主要功能是实现商品的添加
+ * 
+  * 当前版本：1.2
+  * 作者：杨之正
+  * 完成时间：2020.6.11
+ * 
+  * 取代版本：1.1
+  * 原作者：杨之正
+  * 完成日期：2020.6.4
+ */
+
 import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,6 +63,14 @@ public class CommodityAdd extends HttpServlet {
 	 * @throws IOException 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
+	/**
+	  * 函数介绍：从数据库中取得相应的数据并进行展示
+	  * 输入参数：HttpServletRequest request, HttpServletResponse response
+	  * 输出参数：无
+	  * 返回值：在网页上可以看到相关的信息
+	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException  {
 		response.setContentType("text/html;charset=utf8");
 		response.setCharacterEncoding("utf-8");
@@ -62,6 +85,7 @@ public class CommodityAdd extends HttpServlet {
 		float cprice=Float.parseFloat(price);
 		HttpSession session=request.getSession();
 		String sellerid=(String)session.getAttribute("sellerid");
+		System.out.println(sellerid);
 		int sid=Integer.parseInt(sellerid);
 		Connection conn=null;
 		PreparedStatement pstm=null;
